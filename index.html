@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff5f8">
+    <title>A Date With You 💗</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="snow-layer" aria-hidden="true"></div>
+    <div class="celebration-snow-layer" aria-hidden="true"></div>
+    <div class="heart-layer" aria-hidden="true"></div>
+    <div class="flower-fall-layer" aria-hidden="true"></div>
+    <main class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#" aria-label="A Date With You home"><span class="brand-mark">♡</span> a date with you</a>
+        <span class="header-note">a little plan for us <span aria-hidden="true">✦</span></span>
+      </header>
+
+      <section class="step-card welcome-card" data-step="welcome" aria-labelledby="welcome-title">
+        <div class="eyebrow"><span>✦</span> a little something special <span>✦</span></div>
+        <div class="hero-heart" aria-hidden="true">♡</div>
+        <p class="pretitle">I Have a Special Question for You... 💗</p>
+        <h1 id="welcome-title">Would You Like to<br>Go on a Date With Me?</h1>
+        <p class="subcopy">Let’s make a sweet little memory together.</p>
+        <div class="button-row centered">
+          <button type="button" class="button button-primary" data-go="calendar">YES! 💕</button>
+          <button type="button" class="button button-soft" data-go="calendar">Absolutely YES! 🥰</button>
+        </div>
+        <p class="tiny-note">P.S. there’s no wrong answer (but this is the right one) ♡</p>
+      </section>
+
+      <section class="step-card" data-step="calendar" aria-labelledby="calendar-title" hidden>
+        <div class="step-heading">
+          <span class="step-count">01 <i>/ 05</i></span>
+          <p class="eyebrow">let’s pick a day</p>
+          <h1 id="calendar-title">First, Choose Our<br>Special Day 💗</h1>
+          <p class="subcopy">Pick a date that feels just right.</p>
+        </div>
+        <div class="calendar">
+          <div class="calendar-top">
+            <button type="button" class="icon-button" id="previous-month" aria-label="Previous month">‹</button>
+            <h2 id="month-label" aria-live="polite"></h2>
+            <button type="button" class="icon-button" id="next-month" aria-label="Next month">›</button>
+          </div>
+          <div class="calendar-grid calendar-weekdays" aria-hidden="true">
+            <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+          </div>
+          <div class="calendar-grid" id="calendar-days" role="group" aria-label="Choose a date"></div>
+          <div class="calendar-legend"><span class="legend-dot"></span> our day <span class="legend-heart">♡</span></div>
+        </div>
+        <p class="inline-message" id="calendar-message" aria-live="polite"></p>
+        <div class="button-row">
+          <button type="button" class="button button-quiet" data-back>Back</button>
+          <button type="button" class="button button-primary" data-continue="calendar">Continue <span>→</span></button>
+        </div>
+      </section>
+
+      <section class="step-card wide-card" data-step="activity" aria-labelledby="activity-title" hidden>
+        <div class="step-heading">
+          <span class="step-count">02 <i>/ 05</i></span>
+          <p class="eyebrow">choose our little adventure</p>
+          <h1 id="activity-title">What Would You Like<br>to Do With Me? 💕</h1>
+          <p class="subcopy">Choose the plan that makes you smile.</p>
+        </div>
+        <div class="option-grid activities" id="activity-options"></div>
+        <p class="inline-message" id="activity-message" aria-live="polite"></p>
+        <div class="button-row">
+          <button type="button" class="button button-quiet" data-back>Back</button>
+          <button type="button" class="button button-primary" data-continue="activity">Continue <span>→</span></button>
+        </div>
+      </section>
+
+      <section class="step-card" data-step="restaurant" aria-labelledby="restaurant-title" hidden>
+        <div class="step-heading">
+          <span class="step-count">03 <i>/ 05</i></span>
+          <p class="eyebrow">a dinner date sounds lovely</p>
+          <h1 id="restaurant-title">Where Would You Like to<br>Have Dinner With Me? 💗</h1>
+          <p class="subcopy">Pick our dinner spot.</p>
+        </div>
+        <div class="option-grid restaurant-options" id="restaurant-options"></div>
+        <p class="inline-message" id="restaurant-message" aria-live="polite"></p>
+        <div class="button-row">
+          <button type="button" class="button button-quiet" data-back>Back</button>
+          <button type="button" class="button button-primary" data-continue="restaurant">Continue <span>→</span></button>
+        </div>
+      </section>
+
+      <section class="step-card" data-step="time" aria-labelledby="time-title" hidden>
+        <div class="step-heading">
+          <span class="step-count">04 <i>/ 05</i></span>
+          <p class="eyebrow">we’ll save the time for you</p>
+          <h1 id="time-title">What Time Should<br>We Meet? ⏰</h1>
+          <p class="subcopy">Pick a time that works for you.</p>
+        </div>
+        <label class="time-label" for="meeting-time">Your time</label>
+        <input id="meeting-time" class="time-input" type="time" aria-describedby="time-message">
+        <div class="suggestion-label">A few lovely ideas</div>
+        <div class="suggested-times" id="suggested-times">
+          <button type="button" class="time-chip" data-time="16:00">4:00 PM</button>
+          <button type="button" class="time-chip" data-time="17:00">5:00 PM</button>
+          <button type="button" class="time-chip" data-time="18:00">6:00 PM</button>
+          <button type="button" class="time-chip" data-time="19:00">7:00 PM</button>
+        </div>
+        <p class="inline-message" id="time-message" aria-live="polite"></p>
+        <div class="button-row">
+          <button type="button" class="button button-quiet" data-back>Back</button>
+          <button type="button" class="button button-primary" data-continue="time">Continue <span>→</span></button>
+        </div>
+      </section>
+
+      <section class="step-card" data-step="confirmation" aria-labelledby="confirmation-title" hidden>
+        <div class="step-heading">
+          <span class="step-count">05 <i>/ 05</i></span>
+          <p class="eyebrow">just one last look</p>
+          <h1 id="confirmation-title">Our Little Date Plan 💗</h1>
+          <p class="subcopy">Does this sound like a perfect day?</p>
+        </div>
+        <div class="summary-card" id="date-summary"></div>
+        <p class="inline-message" id="confirmation-message" aria-live="polite"></p>
+        <div class="button-row">
+          <button type="button" class="button button-quiet" data-back>Edit my plan</button>
+          <button type="button" class="button button-primary" id="confirm-date">Confirm Our Date 💕</button>
+        </div>
+      </section>
+
+      <section class="step-card celebration-card" data-step="celebration" aria-labelledby="celebration-title" hidden>
+        <div class="celebration-glow" aria-hidden="true"></div>
+        <div class="celebration-hearts" aria-hidden="true">💗 💕 💖</div>
+        <p class="eyebrow">it’s official!</p>
+        <h1 id="celebration-title">YAYYYYY!<br>IT'S A DATE! 💗</h1>
+        <p class="celebration-copy">I can't wait to spend this special time with you.<br>Every moment with you is special! 🥰</p>
+        <p class="love-you">Love You! 💗</p>
+        <div class="invitation-wrap">
+          <img id="schedule-image" class="schedule-image" alt="Our Special Date invitation schedule" hidden>
+        </div>
+        <p class="invitation-caption">A little keepsake of our special plan ♡</p>
+        <div class="button-row centered share-buttons">
+          <button type="button" class="button button-primary" id="save-image">📥 Save Schedule as Image</button>
+          <button type="button" class="button button-soft" id="share-date">💌 Share Our Date</button>
+        </div>
+        <div class="button-row centered return-home-row">
+          <button type="button" class="button button-return-home" id="return-home">🏠 Return to Home</button>
+        </div>
+        <p class="inline-message" id="share-message" aria-live="polite"></p>
+      </section>
+      <footer class="site-footer">made with a little extra love <span>♡</span></footer>
+    </main>
+  </body>
+</html>
