@@ -17,7 +17,7 @@ const activities = [
 const restaurants = [
   { icon: "🍽️", name: "Helium" },
   { icon: "🍔", name: "Chillox" },
-  { icon: "🍕", name: "Pizz&Bug" }
+  { icon: "🍕", name: "Pizz&Burg" }
 ];
 const state = {
   currentStep: "welcome",
